@@ -1,0 +1,56 @@
+﻿@model OrtopediaDM.Marca
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Cargar</h1>
+
+<h4>Marca</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="nombre" class="control-label"></label>
+                <input asp-for="nombre" class="form-control" />
+                <span asp-validation-for="nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="origen" class="control-label"></label>
+                <input asp-for="origen" class="form-control" />
+                <span asp-validation-for="origen" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                    <label asp-for="imagenLogo" class="control-label"></label>
+                    <input asp-for="imagenLogo" class="form-control" />
+                    <span asp-validation-for="imagenLogo" class="text-danger"></span>
+                </div>*@
+            <div class="form-group">
+                <label class="control-label">Seleccione una Imagen</label>
+            </div>
+            <div>
+                <img src="" id="imagen" class="img-thumbnail" style="max-width:75px; max-height: 75px" asp-append-version="true" />
+            </div>
+            <br />
+            <div>
+                <input asp-for="imagenLogo" type="file" id="seleccionImg" accept="image/jpeg, image/png" />
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+</form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Volver</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="~/js/preview.js"></script>

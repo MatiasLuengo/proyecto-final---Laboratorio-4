@@ -1,0 +1,57 @@
+﻿@model OrtopediaDM.Producto
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalles</h1>
+
+<div>
+    <h4>Producto</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.descripcion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.imagenArticulo)
+        </dt>
+        <dd class="col-sm-10">
+            @if (!string.IsNullOrEmpty(@Model.imagenArticulo))
+            {
+                <img src="~/images/productos/@Model.imagenArticulo" class="img-thumbnail" style="max-width:280px; max-height: 280px" asp-append-version="true" />
+            }
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.marca)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.marca.nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.tipo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.tipo.nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.tipo.seccion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.tipo.seccion.nombre)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
+    <a asp-action="Index">Volver a Productos</a>
+</div>

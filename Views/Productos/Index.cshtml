@@ -1,0 +1,84 @@
+﻿@*@model IEnumerable<OrtopediaDM.Producto>*@
+@model OrtopediaDM.ViewsModels.ProductoViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Productos</h1>
+
+<p>
+    <a asp-action="Create">Cargar Nuevo</a>
+</p>
+
+<form class="padding-index" asp-action="index" method="get">
+    <p>
+        Nombre: <input type="text" asp-for="nombre" name="filtroNombre"/>
+        Marca: <select name="marcaId" asp-items="@Model.Marcas"><option value="">Todas</option></select>
+        Tipo:  <select name="tipoId" asp-items="@Model.Tipos"><option value="">Todos</option></select>
+        Sección: <select name="seccionId" asp-items="@Model.Secciones"><option value="">Todas</option></select>
+        <input type="submit" value="Filtrar" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Articulos[0].nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Articulos[0].descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Articulos[0].imagenArticulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Articulos[0].marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Articulos[0].tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Articulos[0].tipo.seccion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Articulos)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descripcion)
+                </td>
+                <td>
+                    @if (!string.IsNullOrEmpty(@item.imagenArticulo))
+                    {
+                        <img src="~/images/productos/@item.imagenArticulo" class="img-thumbnail" style="width:85px; height: 85px" asp-append-version="true" />
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.marca.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tipo.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tipo.seccion.nombre)
+                </td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<partial name="_paginador" for="@Model.paginador" />

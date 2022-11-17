@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+@model IEnumerable<OrtopediaDM.Producto>
+
+
+<div class="text-center">
+    <div class="flex-conteiner padding-bottom">
+        <img class="img-principal" src="~/images/varios/a_f5c9d71851.jpg" />
+        <p>
+            Somos una empresa de 40 años de trayectoria dedicada a la distribución de implantes quirúrgicos,
+            elementos de cirugía y ortopedia. Contamos con la representación de importantes marcas de calidad
+            nacional e internacional que prestigian el mercado local.
+        </p>
+    </div>
+
+    <div>
+        <h3 class="padding-bottom">Destacados</h3>
+    </div>
+
+    <div>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @if (!string.IsNullOrEmpty(@item.imagenArticulo))
+                        {
+                        <a class="paddings" href="https://localhost:44364/Productos/Details/@item.Id">
+                            <img src="~/images/productos/@item.imagenArticulo" class="img-thumbnail" style="width:160px; height: 160px" asp-append-version="true" />
+                        </a>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </div>
+</div>

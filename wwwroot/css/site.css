@@ -1,0 +1,183 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+:root {
+    --blanco: #ffffff;
+    --negro: #212121;
+    --primario: #ffc107;
+    --secundario: #0097a7;
+    --gris: #757575;
+}
+body {
+    font-size: 16px; /*1 rem = 10 px*/
+    font-family: 'Baloo Bhaijaan 2', Arial, Helvetica, sans-serif;
+    background-image: linear-gradient(to top, #dfe9f3 0%, var(--blanco));
+}
+
+/*.navegador-principal a {
+    display: block;
+    text-align: center;
+    color: var(--blanco);
+    text-decoration-line: none;
+    font-weight: 700;*/ /*grosor*/
+    /*font-size: 1rem;*/ /*tamañ0*/
+    /*padding: 1rem 4rem;*/ /*El relleno donde estan los enlaces*/
+/*}*/
+.img-principal{
+    max-height: 20rem;
+    max-width: 20rem;
+}
+
+a.nav-activo {
+    color: var(--gris);
+}
+
+.contenedor {
+    max-width: 120rem; /*A diferencia del width solo, es que este da los 120rem si el dispositivo los tiene, si no toma por default el ancho del dispositivo*/
+    /*width: 120rem; El esapcio que va a ocupar los enlaces*/
+    margin: 0 auto 0 auto; /*Los margenes en el espacio*/
+    padding-bottom: 2.5rem;
+}
+
+.barra-layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-right: 1rem;
+}
+    .barra-layout li {
+        padding-right: 1rem;
+        font-weight: normal;
+        font-size: 1.2rem;
+    }
+
+/*.navegador-principal {
+    display: flex; 
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .navegador-principal {
+        display: flex;
+        flex-direction: row; 
+        justify-content: space-around;
+    }
+}*/
+
+.navegador-principal a {
+    display: block;
+    text-align: center;
+    position: relative;
+    color: #333;
+    text-decoration: none;
+}
+.navegador-principal a:after {
+    content: "";
+    display: block;
+    margin: auto;
+    height: 2px;
+    width: 0px;
+    transition: all .8s;
+}
+.navegador-principal a:hover:after {
+    width: 100%;
+    background: #333;
+}
+
+.nav-secundario {
+    padding-right: 2rem;
+}
+
+.flex-conteiner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.padding-bottom{
+    padding-bottom: 2.5rem;
+}
+
+.paddings{
+    padding: 5px;
+}
+
+.padding-index {
+    padding-top: 2rem;
+    padding-bottom: 2.5rem;
+}
+
+
+
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+/*a {
+  color: #0366d6;
+}*/
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+.padding-right{
+    padding-right: 5px
+}
